@@ -1,1 +1,1 @@
-worker: bash python main.py
+worker: bash cypu.sh
