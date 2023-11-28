@@ -1,1 +1,1 @@
-worker: bash asad.sh
+worker:python3 main.py
