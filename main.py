@@ -1,12 +1,24 @@
-import os
-from pyrogram import Client, idle
-from pytgcalls import PyTgCalls
-from pytgcalls import idle as pyidle
-from config import bot, call_py
+import asyncio
+from pytgcalls import idle
+from config import call_py, bot
 
-bot.start()
-print("UserBot Started")
-call_py.start()
-print("Vc Client Started")
-pyidle()
-idle()
+
+async def main():
+    print("STARTING UBOT CLIENT")
+    await bot.start()
+    print("STARTING PYTGCALLS CLIENT")
+    await call_py.start()
+    print(
+        """
+    ------------------------
+   | MusicUserbot Actived! |
+    ------------------------
+"""
+    )
+    await idle()
+    print("STOPPING USERBOT")
+    await bot.stop()
+
+
+loop = asyncio.get_event_loop()
+loop.run_until_complete(main())
